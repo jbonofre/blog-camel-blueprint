@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+    <reference id="myService" interface="net.nanthrax.blog.service.EchoService"/>
+
+    <camelContext xmlns="http://camel.apache.org/schema/blueprint">
+        <route>
+            <from uri="timer:fire?period=5000"/>
+            <setBody>
+                <constant>Hello Blog</constant>
+            </setBody>
+            <to uri="bean:myService"/>
+            <to uri="log:net.nanthrax.blog.route"/>
+            <to uri="file:camel-output"/>
+        </route>
+    </camelContext>
+
+</blueprint>

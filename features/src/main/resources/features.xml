@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="blog-camel-blueprint" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <feature name="blog-camel-blueprint-service" version="${project.version}">
+        <bundle>mvn:net.nanthrax.blog/net.nanthrax.blog.camel.route.blueprint.service/${project.version}</bundle>
+    </feature>
+
+    <feature name="blog-camel-blueprint-route" version="${project.version}">
+        <feature>blog-camel-blueprint-service</feature>
+        <bundle>mvn:net.nanthrax.blog/net.nanthrax.blog.camel.route.blueprint.myroute/${project.version}</bundle>
+    </feature>
+
+</features>
